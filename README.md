@@ -1,4 +1,4 @@
- Interface de Programação de Aplicações, que permite diferentes sistemas se comunicarem.
+ <!-- Interface de Programação de Aplicações, que permite diferentes sistemas se comunicarem.
 : Transferência de Estado Representacional, um estilo arquitetural que usa protocolos HTTP.
 :
 Usa métodos HTTP: GET, POST, PUT, DELETE.
@@ -14,4 +14,4 @@ Responsável pela interface com o usuário.
 Como estamos criando uma API RESTful, a "view" seria representada pelas respostas JSON.
 :
 Contém a lógica de aplicação.
-Manipula as requisições HTTP e interage com os modelos para retornar as respostas apropriadas.
+Manipula as requisições HTTP e interage com os modelos para retornar as respostas apropriadas. -->
