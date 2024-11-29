@@ -1,24 +1,26 @@
-const express = require("express");
-const bodyparser = require("body-parser");
-//import router.aluno from "./'"
-const db = require ("./db.js")
+const express = require('express');
+const dotenv = require('dotenv');
+const cors = require('cors');
+const connectDB = require('./config/db');
 
-const app = express()
+dotenv.config();
 
-const PORT = 8000 
+connectDB();
 
-app.use(bodyparser.json())
+const app = express();
 
-//app.use('/', router.aluno)
 
-app.get('/aluno', (req, res) => {
+app.use(cors());
+app.use(express.json());
 
-    res.status(200).json({db})
-    console.log(db.nome)
 
-})
+const alunoRoutes = require('./routes/alunoRoutes');
 
-app.listen(PORT, () =>{
-    console.log(`API rodando na porta ${PORT}`)
-})
+app.use('/api/alunos', alunoRoutes);
 
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});

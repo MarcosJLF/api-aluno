@@ -1,14 +1,13 @@
-const {Pool} = require ("pg");
+const mongoose = require('mongoose');
 
-const pool = new Pool({
-    user: "postgres",
-    host: "localhost",
-    database: "alunos",
-    password: "postgres",
-    port: 5432,
-    max: 5,
-    idleTimeoutMillis: 30000
-})
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+    console.log('MongoDB connected');
+  } catch (error) {
+    console.error(error.message);
+    process.exit(1);
+  }
+};
 
-
-module.exports = {pool}
+module.exports = connectDB;
